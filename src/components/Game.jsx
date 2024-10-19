@@ -8,6 +8,12 @@ import cupcake from '../assets/images/cupcake.jpg';
 import christmasDessert from '../assets/images/christmas-dessert.jpg';
 import sandwich from '../assets/images/sandwich.jpg';
 import frontCard from '../assets/images/card-front.jpg';
+import restart from '../assets/images/refresh.jpg';
+import medal from '../assets/images/medal.jpg';
+import flip from '../assets/images/flip.jpg';
+import stopwatch from '../assets/images/stopwatch.jpg';
+import filledstar from '../assets/images/stars-filled.jpg';
+import emptystar from '../assets/images/stars-empty.jpg';
 
 const cardCharacters = [
     { id: 1, name: 'candies', img: candies },
@@ -112,37 +118,78 @@ const Game = () => {
 
     return (
         <div className='container'>
-            <h1>Memory Card Game</h1>
-            <p>Flips: {moves}</p>
-            <p>Score: {score}</p>
-            <p>Time Left: {timeLeft} sec</p>
-
-            <div className='card-grid'>
-                {cards.map(card => (
-                    <div
-                        key={card.id}
-                        className={`card ${flippedCards.includes(card) || matchedCards.includes(card.name) ? 'flipped' : ''}`}
-                        onClick={() => handleCardClick(card)}>
-                        <div className="card-front">
-                            <img src={card.img} alt={card.name} />
+            <div className='inner-container'>
+                <h1>Memory Card Game</h1>
+                <div className='top-header'>
+                    <div className='info-card'>
+                        <div className='info-icon'>
+                            <img src={medal} alt="Medal" className='score' />
                         </div>
-                        <div className="card-back">
-                            <img src={frontCard} alt="" />
+                        <div className='info-card-title'>
+                            <span>Score: {score}</span>
                         </div>
                     </div>
-                ))}
-            </div>
+                    <div className='info-card'>
+                        <div className='info-icon'>
+                            <img src={flip} alt="Flip" className='score' />
+                        </div>
+                        <div className='info-card-title'>
+                            <span>Flips: {moves}</span>
+                        </div>
+                    </div>
+                    <div className='info-card'>
+                        <div className='info-icon'>
+                            <img src={stopwatch} alt="Stopwatch" className='score' />
+                        </div>
+                        <div className='info-card-title'>
+                            <span>Timer: {timeLeft} sec</span>
+                        </div>
+                    </div>
+                </div>
+                <div className='card-grid'>
+                    {cards.map(card => (
+                        <div
+                            key={card.id}
+                            className={`card ${flippedCards.includes(card) || matchedCards.includes(card.name) ? 'flipped' : ''}`}
+                            onClick={() => handleCardClick(card)}>
+                            <div className="card-front">
+                                <img src={card.img} alt={card.name} />
+                            </div>
+                            <div className="card-back">
+                                <img src={frontCard} alt="" />
+                            </div>
+                        </div>
+                    ))}
+                </div>
 
-            {/* Modal for game over or game won*/}
-            {isModalOpen && (
-                <Modal isOpen = {isModalOpen} onRequestClose={() => setIsModalOpen(false)} className='modal'>
-                    <h2>{gameWon ? 'Congratulations, You Won!' : 'Game Over!'}</h2>
-                    <p>Your Score: {score}</p>
-                    <p>Total Flips: {moves}</p>
-                    <p>{gameWon ? 'You matched all cards before time ran out!' : 'Better luck, try again!'}</p>
-                    <button onClick={resetGame}>Restart</button>
-                </Modal>
-            )}
+                {/* Modal for game over or game won*/}
+                {isModalOpen && (
+                    <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)} className='modal'>
+                        <h2>{gameWon ? 'Congratulations, You Won!' : 'Game Over!'}</h2>
+                        <p>{gameWon ? 'You matched all cards before time ran out!' : 'Better luck, try again!'}</p>
+                        <div className='modal-score'>
+                            <div className='info-card'>
+                                <div className='info-icon'>
+                                    <img src={medal} alt="Medal" className='score' />
+                                </div>
+                                <div className='info-card-title'>
+                                    <span>Score: {score}</span>
+                                </div>
+                            </div>
+                            <div className='info-card'>
+                                <div className='info-icon'>
+                                    <img src={flip} alt="Flip" className='score' />
+                                </div>
+                                <div className='info-card-title'>
+                                    <span>Flips: {moves}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <img src={restart} alt="Refresh Image" onClick={resetGame} className='reset' />
+
+                    </Modal>
+                )}
+            </div>
         </div>
     )
 }
