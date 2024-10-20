@@ -166,7 +166,8 @@ const Game = () => {
                 {isModalOpen && (
                     <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)} className='modal'>
                         <h2>{gameWon ? 'Congratulations, You Won!' : 'Game Over!'}</h2>
-                        <p>{gameWon ? 'You matched all cards before time ran out!' : 'Better luck, try again!'}</p>
+                        <h3>{gameWon ? 'You matched all cards before time ran out!' : 'Better luck, try again!'}</h3>
+                        <div>{gameWon ? <img src={filledstar} alt='filled-star' className='star'/> : <img src={emptystar} alt='empty-star' className='star'/> }</div>
                         <div className='modal-score'>
                             <div className='info-card'>
                                 <div className='info-icon'>
