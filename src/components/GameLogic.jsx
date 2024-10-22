@@ -33,7 +33,7 @@ const GameLogic = () => {
     const [matchedCards, setMatchedCards] = useState([]);
     const [moves, setMoves] = useState(0);
     const [score, setScore] = useState(0);
-    const [timeLeft, setTimeLeft] = useState(5);
+    const [timeLeft, setTimeLeft] = useState(60);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [gameOver, setGameOver] = useState(false);
     const [gameWon, setGameWon] = useState(false);
@@ -105,7 +105,7 @@ const GameLogic = () => {
         setMatchedCards([]);
         setMoves(0);
         setScore(0);
-        setTimeLeft(5);
+        setTimeLeft(60);
         setGameOver(false);
         setGameWon(false);
         setIsModalOpen(false);
