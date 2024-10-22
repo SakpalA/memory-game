@@ -1,9 +1,9 @@
-import Game from "./components/Game";
+import GameLogic from "./components/GameLogic";
 
 
 function App() {
   return (
-    <Game />
+    <GameLogic />
   );
 }
 
