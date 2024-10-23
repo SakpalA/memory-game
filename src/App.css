@@ -210,6 +210,10 @@ h3 {
     width: 130px;
     height: 130px;
   }
+
+  .modal-score{
+    justify-content: flex-start;
+  }
 }
 
 @media screen and (max-width: 425px) {

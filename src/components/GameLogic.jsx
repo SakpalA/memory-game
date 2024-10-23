@@ -10,6 +10,8 @@ import christmasDessert from '../assets/images/christmas-dessert.jpg';
 import sandwich from '../assets/images/sandwich.jpg';
 import frontCard from '../assets/images/card-front.jpg';
 import stopwatch from '../assets/images/stopwatch.jpg';
+import medal from '../assets/images/medal.jpg';
+import flip from '../assets/images/flip.jpg';
 
 const cardCharacters = [
     { id: 1, name: 'candies', img: candies },
@@ -65,7 +67,7 @@ const GameLogic = () => {
     const handleCardClick = (card) => {
         if (flippedCards.length < 2 && !flippedCards.includes(card) && !matchedCards.includes(card.name)) {
             setFlippedCards([...flippedCards, card]);
-            if(flippedCards.length === 0){
+            if (flippedCards.length === 0) {
                 setMoves(prevMoves => prevMoves + 1);
             }
         }
@@ -90,7 +92,7 @@ const GameLogic = () => {
         if (matchedCards.length === cardCharacters.length) {
             setGameWon(true);
             endGame();
-        }else if(timeLeft === 0){
+        } else if (timeLeft === 0) {
             setGameOver(true);
             endGame();
         }
@@ -127,13 +129,30 @@ const GameLogic = () => {
         <>
             <h1>Memory Card Game</h1>
             <div className={isModalOpen ? 'hide' : 'top-header'}>
-                <ScoreCard moves={moves} score={score}/>
-                <div className='info-card'>
-                    <div className='info-icon'>
-                        <img src={stopwatch} alt="Stopwatch" className='score' />
+                <div className='modal-score'>
+                    <div className='info-card'>
+                        <div className='info-icon'>
+                            <img src={medal} alt="Medal" className='score' />
+                        </div>
+                        <div className='info-card-title'>
+                            <span>Score: {score}</span>
+                        </div>
                     </div>
-                    <div className='info-card-title'>
-                        <span>Timer: {timeLeft} sec</span>
+                    <div className='info-card'>
+                        <div className='info-icon'>
+                            <img src={flip} alt="Flip" className='score' />
+                        </div>
+                        <div className='info-card-title'>
+                            <span>Flips: {moves}</span>
+                        </div>
+                    </div>
+                    <div className='info-card'>
+                        <div className='info-icon'>
+                            <img src={stopwatch} alt="Stopwatch" className='score' />
+                        </div>
+                        <div className='info-card-title'>
+                            <span>Timer: {timeLeft} sec</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -154,14 +173,14 @@ const GameLogic = () => {
             </div>
 
             {/* Modal for game over or game won*/}
-            <GameModal 
-            isModalOpen={isModalOpen}
-            gameWon={gameWon}
-            gameOver={gameOver}
-            moves={moves}
-            score={score}
-            setIsModalOpen={setIsModalOpen}
-            resetGame={resetGame}/>
+            <GameModal
+                isModalOpen={isModalOpen}
+                gameWon={gameWon}
+                gameOver={gameOver}
+                moves={moves}
+                score={score}
+                setIsModalOpen={setIsModalOpen}
+                resetGame={resetGame} />
         </>
     )
 }
