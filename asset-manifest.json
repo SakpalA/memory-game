@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/memory-game/static/css/main.b67d71a5.css",
+    "main.js": "/memory-game/static/js/main.fb9f4e2a.js",
+    "static/js/453.58d809e6.chunk.js": "/memory-game/static/js/453.58d809e6.chunk.js",
+    "static/media/background.png": "/memory-game/static/media/background.0678026688dac9008260.png",
+    "static/media/stars-filled.jpg": "/memory-game/static/media/stars-filled.0a84bb8aea2276ec2ff3.jpg",
+    "static/media/stars-empty.jpg": "/memory-game/static/media/stars-empty.bc7f967eb8ab55888a14.jpg",
+    "static/media/sandwich.jpg": "/memory-game/static/media/sandwich.353d343a8bc8fd303441.jpg",
+    "static/media/candies.jpg": "/memory-game/static/media/candies.bceb1d1f38fad1b76197.jpg",
+    "static/media/christmas-dessert.jpg": "/memory-game/static/media/christmas-dessert.0f5d48c9b30cff119b22.jpg",
+    "static/media/cupcake.jpg": "/memory-game/static/media/cupcake.fcebebc1cfdc4e1b4af4.jpg",
+    "static/media/cherry.jpg": "/memory-game/static/media/cherry.2d07601cd10313bd3088.jpg",
+    "static/media/jar.jpg": "/memory-game/static/media/jar.f9f3181aa2a80f92d06b.jpg",
+    "static/media/card-front.jpg": "/memory-game/static/media/card-front.5df14a28b372f773f27f.jpg",
+    "index.html": "/memory-game/index.html",
+    "main.b67d71a5.css.map": "/memory-game/static/css/main.b67d71a5.css.map",
+    "main.fb9f4e2a.js.map": "/memory-game/static/js/main.fb9f4e2a.js.map",
+    "453.58d809e6.chunk.js.map": "/memory-game/static/js/453.58d809e6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b67d71a5.css",
+    "static/js/main.fb9f4e2a.js"
+  ]
+}
