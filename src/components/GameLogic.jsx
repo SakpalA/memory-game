@@ -65,6 +65,9 @@ const GameLogic = () => {
     const handleCardClick = (card) => {
         if (flippedCards.length < 2 && !flippedCards.includes(card) && !matchedCards.includes(card.name)) {
             setFlippedCards([...flippedCards, card]);
+            if(flippedCards.length === 0){
+                setMoves(prevMoves => prevMoves + 1);
+            }
         }
     };
 
@@ -85,11 +88,19 @@ const GameLogic = () => {
     // Check for win condition: all cards matched before timer ends
     useEffect(() => {
         if (matchedCards.length === cardCharacters.length) {
-            clearInterval(timerRef.current);
-            setIsModalOpen(true);
             setGameWon(true);
+            endGame();
+        }else if(timeLeft === 0){
+            setGameOver(true);
+            endGame();
         }
     }, [matchedCards])
+
+    // end the game
+    const endGame = () => {
+        clearInterval(timerRef.current);
+        isModalOpen(true);
+    }
 
     // Start Timer
     const startTimer = () => {
@@ -115,7 +126,7 @@ const GameLogic = () => {
     return (
         <>
             <h1>Memory Card Game</h1>
-            <div className='top-header'>
+            <div className={isModalOpen ? 'hide' : 'top-header'}>
                 <ScoreCard moves={moves} score={score}/>
                 <div className='info-card'>
                     <div className='info-icon'>

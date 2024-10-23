@@ -9,16 +9,25 @@ const GameModal = ({isModalOpen, gameWon, moves, score, setIsModalOpen, resetGam
     return (
         <div className='modal-div'>
             {isModalOpen && (
-                <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)} className='modal'>
+                <Modal 
+                isOpen={isModalOpen} 
+                onRequestClose={() => {}}  
+                ariaLabel='Game Over Modal' 
+                className='modal'
+                shouldCloseOnOverlayClick={false}
+                shouldCloseOnEsc={false}>
                     <h2>{gameWon ? 'Congratulations, You Won!' : 'Game Over!'}</h2>
                     <h3>{gameWon ? 'You matched all cards before time ran out!' : 'Better luck, try again!'}</h3>
-                    <div>{gameWon ? <img src={filledstar} alt='filled-star' className='star' /> : <img src={emptystar} alt='empty-star' className='star' />}</div>
+                    <img src={gameWon ? filledstar : emptystar} alt={gameWon ? 'filled-star' : 'filled-star' }className='star' /> 
                     <ScoreCard moves={moves} score={score} />
-                    <img src={restart} alt="Refresh Image" onClick={resetGame} className='reset' />
+                    <img src={restart} alt="Refresh Image" 
+                    onClick={() => {
+                        setIsModalOpen(false)
+                        resetGame()}}  className='reset' />
                 </Modal>
             )}
         </div>
     )
 }
 
-export default GameModal
+export default GameModal;
